@@ -1,0 +1,23 @@
+<h2 class="content-subhead">Search</h2>
+
+<form action="/search" method="get">
+  <input name="query" value="<%= params[:query] %>">
+  <button type="submit">Search</button>
+</form>
+
+<% unless params.empty? %>
+  <% if !@results.empty? %>
+  <h3>Results</h3>
+    <% @results.each do |chapter, paragraphs| %>
+    <h3> <%= @contents[chapter.to_i - 1] %> </h3>
+    <% paragraphs.each do |idx, paragraph| %>
+      <ul>
+	      <li><a href= <%= request.base_url + "/chapters/#{chapter}##{idx + 1}" %>> <%= bold_query(paragraph,params[:query]) %></a>
+	      </li>
+      </ul>
+       <% end %>
+    <% end %>
+  <% else %>
+    <p>No results found</p>
+  <% end %>
+<% end %>
