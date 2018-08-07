@@ -1,0 +1,6 @@
+<ul id="lists">
+	<% @lists.each do |list| %>
+	  <li> <%= list[:name] %>  <p><%= list[:todos].size %></p></li>
+	<% end %>
+</ul>
+<a href="/lists/new">New List</a>
