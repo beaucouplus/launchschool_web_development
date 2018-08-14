@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Todo App</title>
+    <meta charset="UTF-8">
+    </head>
+  <body>
+<% if session[:failure] %>
+<%= session.delete(:failure) %>
+<% end %>
+
+<ul>
+<% @files.each do |file| %>
+	<li><a href=<%= "/data/#{file}" %>><%= file %></a></li>
+<% end %>
+</ul>
+</body>
+</html>
