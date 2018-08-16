@@ -5,13 +5,10 @@
     <meta charset="UTF-8">
     </head>
   <body>
-<% if session[:failure] %>
-<%= session.delete(:failure) %>
-<% end %>
 
 <ul>
 <% @files.each do |file| %>
-	<li><a href=<%= "/data/#{file}" %>><%= file %></a></li>
+	<li><a href=<%="/data/#{file}" %>><%= file %></a> | <a href="/data/<%= file  %>/edit">Edit</a> </li>
 <% end %>
 </ul>
 </body>
